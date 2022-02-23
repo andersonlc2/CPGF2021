@@ -10,9 +10,10 @@ public class Transacao {
 	private Integer codPortador;
 	private Long codFavorecido;
 	private Integer codOrgao;
+	private String mes;
 	
 	public Transacao(Integer cod, String data, Integer ano, Double valor, String descricao, Integer codPortador,
-			Long codFavorecido, Integer codOrgao) {
+			Long codFavorecido, Integer codOrgao, String mes) {
 		this.cod = cod;
 		this.data = data;
 		this.ano = ano;
@@ -21,6 +22,7 @@ public class Transacao {
 		this.codPortador = codPortador;
 		this.codFavorecido = codFavorecido;
 		this.codOrgao = codOrgao;
+		this.mes = mes;
 	}
 
 	public Integer getCod() {
@@ -86,6 +88,15 @@ public class Transacao {
 	public void setCodOrgao(Integer codOrgao) {
 		this.codOrgao = codOrgao;
 	}
+
+	public String getMes() {
+		return mes;
+	}
+
+	public void setMes(String mes) {
+		this.mes = mes;
+	}
+	
 	
 	
 }

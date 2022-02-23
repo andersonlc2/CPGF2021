@@ -16,36 +16,41 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		//String file = "/home/anderson.correa/Props/202110_CPGF.csv";
+		//String file = "/home/anderson.correa/Props/202110_CPGF.csv"; 
 		//String file = "/home/anderson.correa/Props/202101_CPGF.csv"; // Janeiro
+		//String file = "/home/anderson.correa/Props/202102_CPGF.csv"; // Fevereiro
+
 		//readFile(file);
-	
+		
+		int mesConsulta = 0;
+		
 		System.out.println();
 		System.out.println("Qual a soma total das movimentações utilizando o CPGF?");
-		System.out.println(dal.Info.totalMovimentacao());
+		System.out.println(dal.Info.totalMovimentacao(mesConsulta));
 		
 		System.out.println();
 		System.out.println("Qual a soma das movimentações sigilosas ?");
-		System.out.println(dal.Info.totalSigilosas());
+		System.out.println(dal.Info.totalSigilosas(mesConsulta));
 
 		System.out.println();
 		System.out.println("Qual o Órgão que mais realizou movimentações sigilosas no período e qual o valor (somado)?");
-		System.out.println(dal.Info.orgaoComMaisSigilosas());
+		System.out.println(dal.Info.orgaoComMaisSigilosas(mesConsulta));
 		
 		System.out.println();
 		System.out.println("Qual o nome do portador que mais realizou saques no período? Qual a soma dos saques realizada por ele? Qual o nome do Órgão desse portador?");
-		System.out.println(dal.Info.portadorComMaisSaques());
+		System.out.println(dal.Info.portadorComMaisSaques(mesConsulta));
 
 		System.out.println();
 		System.out.println("Qual o nome do favorecido que mais recebeu compras realizadas utilizando o CPGF?");
-		System.out.println(dal.Info.favorecidoComMaisCompras());
+		System.out.println(dal.Info.favorecidoComMaisCompras(mesConsulta));
 		
 		DB.closeConnection();
+		
 	}
 	
 	
 	public static void readFile(String file) {
-		
+				
 		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
 			
 			String line = br.readLine();
@@ -83,7 +88,8 @@ public class Program {
 						source[12],
 						portador.getCpf(),
 						favorecido.getCod(),
-						orgao.getCod()
+						orgao.getCod(),
+						dal.Info.mes[Integer.parseInt(source[7].replace("\"", ""))]
 				);
 				dal.Insert.transacao(transacao, cont);
 				

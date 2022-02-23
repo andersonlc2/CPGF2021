@@ -20,6 +20,7 @@ public class Insert {
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	private static Connection conn = DB.getConnection();
+	
 	private static PreparedStatement st = null;
 	
 	public static void orgaoSuperior(OrgaoSuperior orgaoSuperior) {
@@ -120,9 +121,11 @@ public class Insert {
 	
 	public static void transacao(Transacao transacao, int count) {
 		try {
+			//conn.setAutoCommit(false);
+			
 			st = conn.prepareStatement(
-					"INSERT INTO transacao(data, ano, valor, descricao, codportador, codfavorecido, codorgao) "
-					+ "VALUES(?, ?, ?, ?, ?, ?, ?)");
+					"INSERT INTO transacao(data, ano, valor, descricao, codportador, codfavorecido, codorgao, mes) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 			st.setDate(1, new Date(sdf.parse(transacao.getData()).getTime()));
 			st.setInt(2, transacao.getAno());
 			st.setDouble(3, transacao.getValor());
@@ -130,9 +133,11 @@ public class Insert {
 			st.setInt(5, transacao.getCodPortador());
 			st.setLong(6, transacao.getCodFavorecido());
 			st.setLong(7, transacao.getCodOrgao());
+			st.setString(8, transacao.getMes());
 			
 			int rowsAffect = st.executeUpdate();
 			
+			//conn.commit();
 			if (rowsAffect > 0) {
 				System.out.println("Rows affect: "+count);
 			}
@@ -143,6 +148,7 @@ public class Insert {
 		}
 		catch(SQLException e) {
 			System.err.println("Error: "+ e.getMessage());
+
 		}
 		catch(ParseException e) {
 			System.err.println(e.getMessage());
