@@ -15,7 +15,7 @@ public class Info {
 	private static Statement st = null;
 	private static ResultSet rs = null;
 	
-	public static Double totalMovimentacao() {
+	public static String totalMovimentacao() {
 			Double total = 0.0;
 			try {
 				st = conn.createStatement();
@@ -30,7 +30,7 @@ public class Info {
 			finally {
 				DB.closeStatement(st);
 			}	
-			return total;
+			return String.format("%.2f", total);
 
 	}
 

@@ -17,6 +17,7 @@ public class Program {
 	public static void main(String[] args) {
 		
 		//String file = "/home/anderson.correa/Props/202110_CPGF.csv";
+		//String file = "/home/anderson.correa/Props/202101_CPGF.csv"; // Janeiro
 		//readFile(file);
 	
 		System.out.println();
@@ -39,7 +40,7 @@ public class Program {
 		System.out.println("Qual o nome do favorecido que mais recebeu compras realizadas utilizando o CPGF?");
 		System.out.println(dal.Info.favorecidoComMaisCompras());
 		
-		
+		DB.closeConnection();
 	}
 	
 	
