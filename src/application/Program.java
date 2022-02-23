@@ -16,7 +16,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		//String file = "202110_CPGF.csv";
+		//String file = "/home/anderson.correa/Props/202110_CPGF.csv";
 		//readFile(file);
 	
 		System.out.println();
