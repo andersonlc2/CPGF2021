@@ -40,7 +40,7 @@ public class Info {
 
 	}
 
-	public static Double totalSigilosas(int m) {
+	public static String totalSigilosas(int m) {
 		Double total = 0.0;
 		try {
 			st = conn.createStatement();
@@ -65,7 +65,7 @@ public class Info {
 		finally {
 			DB.closeStatement(st);
 		}	
-		return total;
+		return String.format("%.2f", total);
 
 	}
 

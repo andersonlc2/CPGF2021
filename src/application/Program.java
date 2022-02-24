@@ -16,12 +16,12 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		//String file = "/home/anderson.correa/Props/202110_CPGF.csv"; 
-		//String file = "/home/anderson.correa/Props/202101_CPGF.csv"; // Janeiro
-		//String file = "/home/anderson.correa/Props/202102_CPGF.csv"; // Fevereiro
-
-		//readFile(file);
-		
+		//String [] files = {"202101_CPGF.csv", "202102_CPGF.csv", "202103_CPGF.csv","202104_CPGF.csv", "202105_CPGF.csv", "202106_CPGF.csv",
+		//		"202107_CPGF.csv", "202108_CPGF.csv", "202109_CPGF.csv", "202110_CPGF.csv","202111_CPGF.csv", "202112_CPGF.csv"};
+		//for (String f : files) {
+		//	readFile("/home/anderson.correa/Props/"+f);
+		//}
+				
 		int mesConsulta = 0;
 		
 		System.out.println();
